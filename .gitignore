@@ -1,0 +1,33 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore the public/uploads directory, if you use CarrierWave or similar file upload solutions.
+/public/uploads
+
+# Ignore coverage data.
+/coverage
+
+# Ignore the log files.
+/log/*.log
+
+# Ignore tmp files.
+/tmp
+
+# Ignore .env file containing sensitive data.
+.env
+
+# Ignore macOS system files that may clutter your repository.
+.DS_Store
+
+# Ignore IDE-specific directories and files.
+.idea/
+.vscode/
+
+# Ignore Gemfile.lock for Bundler.
+Gemfile.lock
+
+# Ignore node_modules directory for JavaScript dependencies.
+/node_modules

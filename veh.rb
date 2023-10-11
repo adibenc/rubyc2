@@ -1,7 +1,7 @@
 require 'json'
 
 class Vehicle
-	attr_accessor :vehicle_type, :brand, :model, :color, :year, :engine, :transmission, :fuel_type
+	attr_accessor :vehicle_type, :brand, :model, :color, :year, :engine, :transmission, :fuel_type, :price
 
 	def initialize(builder)
 		@vehicle_type = builder.vehicle_type
@@ -12,6 +12,7 @@ class Vehicle
 		@engine = builder.engine
 		@transmission = builder.transmission
 		@fuel_type = builder.fuel_type
+		@price = builder.price
 	end
 
 =begin 
@@ -21,51 +22,56 @@ end
 =end
 
 	# The VehicleBuilder class is responsible for building a Vehicle instance.
-class VehicleBuilder
-	attr_accessor :vehicle_type, :brand, :model, :color, :year, :engine, :transmission, :fuel_type
+	class VehicleBuilder
+		attr_accessor :vehicle_type, :brand, :model, :color, :year, :engine, :transmission, :fuel_type, :price
 
-	def initialize(vehicle_type)
-		@vehicle_type = vehicle_type
-	end
+		def initialize(vehicle_type)
+			@vehicle_type = vehicle_type
+		end
 
-	def with_brand(brand)
-		@brand = brand
-		self
-	end
+		def with_brand(brand)
+			@brand = brand
+			self
+		end
 
-	def with_model(model)
-		@model = model
-		self
-	end
+		def with_model(model)
+			@model = model
+			self
+		end
 
-	def with_color(color)
-		@color = color
-		self
-	end
+		def with_color(color)
+			@color = color
+			self
+		end
 
-	def with_year(year)
-		@year = year
-		self
-	end
+		def with_year(year)
+			@year = year
+			self
+		end
 
-	def with_engine(engine)
-		@engine = engine
-		self
-	end
+		def with_engine(engine)
+			@engine = engine
+			self
+		end
 
-	def with_transmission(transmission)
-		@transmission = transmission
-		self
-	end
+		def with_transmission(transmission)
+			@transmission = transmission
+			self
+		end
 
-	def with_fuel_type(fuel_type)
-		@fuel_type = fuel_type
-		self
-	end
+		def with_fuel_type(fuel_type)
+			@fuel_type = fuel_type
+			self
+		end
+		
+		def with_price(price)
+			@price = price
+			self
+		end
 
-	def build
-		Vehicle.new(self)
-	end
+		def build
+			Vehicle.new(self)
+		end
 	end
 end
 

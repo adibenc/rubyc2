@@ -1,6 +1,18 @@
 require 'sinatra'
 require 'json'
+require 'sinatra/activerecord'
+require 'dotenv/load' # Load environment variables from .env
+
 require_relative 'veh.rb'
+
+# Set the database URL using the environment variable
+set :database, ENV['DATABASE_URL']
+
+# Define a model
+class Tb1 < ActiveRecord::Base
+	self.table_name = 'tb1'
+end
+
 
 # Calculator class to handle arithmetic operations
 class Calculator
@@ -131,6 +143,23 @@ get '/json1' do
 			json_string,
 			parsed_data,
 		]).to_json
+	rescue StandardError => e
+		status 400
+		failed(e.message , nil)
+	end
+end
+
+get '/tb1' do
+	content_type :json
+
+	begin
+		tb1 = Tb1.all
+
+		success("ok", tb1 ).to_json
+		# success("ok", tb1.to_json ).to_json
+		# success("ok", [] ).to_json
+		# success("ok", JSON.dump(tb1) ).to_json
+		# tb1.to_json
 	rescue StandardError => e
 		status 400
 		failed(e.message , nil)

@@ -7,3 +7,7 @@
 sudo apt-get install libmariadb-dev
 sudo apt-get install libmysqlclient-dev
 ```
+
+## ref
+- https://sinatrarb.com/contrib/json
+- 

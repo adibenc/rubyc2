@@ -7,7 +7,8 @@ require_relative 'veh.rb'
 
 # Set the database URL using the environment variable
 url = ENV['DATABASE_URL']
-uri = URI.parse(URI.encode(url.strip))
+# uri = URI.parse(URI.encode(url.strip))
+uri = url
 
 puts url
 puts uri

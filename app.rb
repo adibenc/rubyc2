@@ -9,6 +9,8 @@ require_relative 'veh.rb'
 url = ENV['DATABASE_URL']
 uri = URI.parse(URI.encode(url.strip))
 
+puts uri
+
 set :database, uri
 
 # Define a model

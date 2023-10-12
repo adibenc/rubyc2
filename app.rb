@@ -6,7 +6,10 @@ require 'dotenv/load' # Load environment variables from .env
 require_relative 'veh.rb'
 
 # Set the database URL using the environment variable
-set :database, ENV['DATABASE_URL']
+url = ENV['DATABASE_URL']
+uri = URI.parse(URI.encode(url.strip))
+
+set :database, uri
 
 # Define a model
 class Tb1 < ActiveRecord::Base
